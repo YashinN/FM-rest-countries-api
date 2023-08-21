@@ -1,0 +1,26 @@
+.search_bar {
+  height: 56px;
+  max-width: 480px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: #9797977b 0px 7px 29px 0px;
+  padding-left: 60px;
+}
+
+.search_bar::placeholder {
+  color: #848484;
+  font-size: 14px;
+}
+
+.search_container {
+  position: relative;
+}
+
+.icon_container {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  transform: translate(-50%, -50%);
+}
