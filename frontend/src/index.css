@@ -15,8 +15,3 @@ body {
 #light {
   background-color: hsl(0, 0%, 98%);
 }
-
-.row {
-  display: flex;
-  justify-content: space-between;
-}
