@@ -1,0 +1,33 @@
+.country_card {
+  max-width: 264px !important;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.flag_img {
+  width: 100%;
+  height: auto;
+  padding-bottom: 24px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.country_card h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 800;
+}
+
+.country_card p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+.country_card p strong {
+  font-weight: 600;
+}
+
+.details_container {
+  padding: 0px 24px;
+  padding-bottom: 46px;
+}
