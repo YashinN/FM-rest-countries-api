@@ -4,7 +4,10 @@ const CountryCard = ({ country }) => {
   return (
     <div className="col-3 p-0">
       <div className={`${styles.country_card} p-0`}>
-        <img className={styles.flag_img} src={country.flag} alt="" />
+        <div className={styles.img_container}>
+          <img className={styles.flag_img} src={country.flag} alt="" />
+        </div>
+
         <div className={styles.details_container}>
           <h2 className="">{country.name}</h2>
           <p>

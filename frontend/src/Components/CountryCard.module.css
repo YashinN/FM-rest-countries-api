@@ -7,7 +7,8 @@
 
 .flag_img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   padding-bottom: 24px;
   border-radius: 5px 5px 0px 0px;
 }
@@ -31,4 +32,9 @@
 .details_container {
   padding: 0px 24px;
   padding-bottom: 46px;
+}
+
+.img_container {
+  height: 160px;
+  width: 100%;
 }
