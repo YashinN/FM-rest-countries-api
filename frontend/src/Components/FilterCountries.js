@@ -22,6 +22,7 @@ const FilterCountries = () => {
       {openFilter && (
         <div className={`${styles.filter_items_container}`}>
           <ul className={`p-0  ${styles.filter_items}`}>
+            <li>All</li>
             <li>Africa</li>
             <li>America</li>
             <li>Asia</li>
