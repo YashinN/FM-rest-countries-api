@@ -2,9 +2,9 @@ import styles from "./FilterCountries.module.css";
 import Chevron from "../Icons/Chevron";
 import { useState } from "react";
 
-const filterTags = ["All", "Africa", "America", "Asia", "Europe", "Oceania"];
+const filterTags = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
-const FilterCountries = () => {
+const FilterCountries = ({ onFilter }) => {
   const [openFilter, setOpenFilter] = useState(false);
 
   const handleFilterState = () => {
@@ -24,7 +24,7 @@ const FilterCountries = () => {
         <div className={`${styles.filter_items_container}`}>
           <ul className={`p-0  ${styles.filter_items}`}>
             {filterTags.map((item) => (
-              <li>{item}</li>
+              <li onClick={() => onFilter(item)}>{item}</li>
             ))}
           </ul>
         </div>
