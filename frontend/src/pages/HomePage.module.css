@@ -1,0 +1,14 @@
+.search_container {
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 480px 200px;
+  justify-content: space-between;
+}
+
+.home_container {
+  max-width: 1280px !important;
+}
+
+.country_grid {
+  margin: auto;
+}

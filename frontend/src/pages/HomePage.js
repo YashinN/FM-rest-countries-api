@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CountryCard from "../Components/CountryCard";
 import SearchBar from "../Components/SearchBar";
+import FilterCountries from "../Components/FilterCountries";
 import styles from "./HomePage.module.css";
 
 const HomePage = ({ TempData }) => {
@@ -21,11 +22,18 @@ const HomePage = ({ TempData }) => {
 
   return (
     <main>
-      <div className="container p-0">
+      <div
+        className={`container p-0 ${styles.search_container} ${styles.home_container}`}
+      >
         <SearchBar onSearch={handleSearch} searchQuery={searchQuery} />
+        <FilterCountries />
       </div>
-      <section className={`container ${styles.countries} p-0`}>
-        <div className="row m-0 gy-4">
+      <section
+        className={`container p-0  ${styles.countries} ${styles.home_container} `}
+      >
+        <div
+          className={` row  justify-content-between gy-4  ${styles.country_grid}`}
+        >
           {data.map((country) => (
             <CountryCard country={country} />
           ))}
