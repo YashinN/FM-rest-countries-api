@@ -7,9 +7,16 @@ import styles from "./HomePage.module.css";
 const HomePage = ({ TempData }) => {
   const [data, setData] = useState(TempData);
   const [searchQuery, setSearchQuery] = useState("");
+  const [countryFilter, setCountryFilter] = useState("All");
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+  };
+
+  const handleFilter = () => {
+    countryFilter !== "All"
+      ? setData(TempData.filter((country) => country.region === countryFilter))
+      : setData(TempData);
   };
 
   useEffect(() => {
@@ -20,13 +27,17 @@ const HomePage = ({ TempData }) => {
     );
   }, [TempData, searchQuery]);
 
+  useEffect(() => {
+    handleFilter();
+  }, [countryFilter]);
+
   return (
     <main>
       <div
         className={`container p-0 ${styles.search_container} ${styles.home_container}`}
       >
         <SearchBar onSearch={handleSearch} searchQuery={searchQuery} />
-        <FilterCountries />
+        <FilterCountries onFilter={setCountryFilter} />
       </div>
       <section
         className={`container p-0  ${styles.countries} ${styles.home_container} `}
