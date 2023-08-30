@@ -1,5 +1,5 @@
 .country_card {
-  min-width: 264px !important;
+  max-width: 264px !important;
   max-height: 336px;
   border-radius: 5px;
   background-color: #fff;
