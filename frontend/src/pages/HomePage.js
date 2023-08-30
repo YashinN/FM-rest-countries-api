@@ -11,6 +11,14 @@ const HomePage = ({ TempData }) => {
     setSearchQuery(query);
   };
 
+  useEffect(() => {
+    setData(
+      TempData.filter((country) =>
+        country.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    );
+  }, [TempData, searchQuery]);
+
   return (
     <main>
       <div className="container p-0">
