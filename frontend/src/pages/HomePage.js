@@ -39,9 +39,7 @@ const HomePage = ({ TempData }) => {
         <SearchBar onSearch={handleSearch} searchQuery={searchQuery} />
         <FilterCountries onFilter={setCountryFilter} />
       </div>
-      <section
-        className={`container p-0  ${styles.countries} ${styles.home_container} `}
-      >
+      <section className={`container p-0  ${styles.home_container} `}>
         <div
           className={` row  justify-content-between gy-4  ${styles.country_grid}`}
         >
