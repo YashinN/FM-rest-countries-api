@@ -1,18 +1,29 @@
 import styles from "./FilterCountries.module.css";
 import Chevron from "../Icons/Chevron";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const filterTags = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const FilterCountries = ({ onFilter }) => {
   const [openFilter, setOpenFilter] = useState(false);
+  const filtersEl = useRef();
 
   const handleFilterState = () => {
     setOpenFilter((state) => !state);
   };
 
+  useEffect(() => {
+    function callback(e) {
+      if (filtersEl.current && !filtersEl.current.contains(e.target)) {
+        setOpenFilter(false);
+      }
+    }
+    document.addEventListener("mousedown", callback);
+    return () => document.removeEventListener("mousedown", callback);
+  }, [openFilter]);
+
   return (
-    <div className={styles.filter_wrapper}>
+    <div ref={filtersEl} className={styles.filter_wrapper}>
       <div className={`${styles.filter_container}`} onClick={handleFilterState}>
         <p className="m-0">Filter by Region</p>
         <span>
