@@ -1,8 +1,11 @@
 import styles from "./CountryCard.module.css";
 
-const CountryCard = ({ country }) => {
+const CountryCard = ({ country, onCountryDetails }) => {
   return (
-    <div className={`col-3 p-0 ${styles.country_card}`}>
+    <div
+      className={`col-3 p-0 ${styles.country_card}`}
+      onClick={() => onCountryDetails(country)}
+    >
       <div className={`p-0`}>
         <div className={styles.img_container}>
           <img className={styles.flag_img} src={country.flag} alt="" />
