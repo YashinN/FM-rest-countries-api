@@ -1,4 +1,5 @@
 import styles from "./CountryPage.module.css";
+import BackArrow from "../Icons/BackArrow";
 
 const CountryPage = ({ selectedCountry }) => {
   const {
@@ -14,7 +15,12 @@ const CountryPage = ({ selectedCountry }) => {
   return (
     <main>
       <section className="container p-0 general_container ">
-        <button className={styles.back_btn}>Back</button>
+        <button className={styles.back_btn}>
+          {" "}
+          <BackArrow />
+          Back
+        </button>
+
         <div className={styles.main_container}>
           <div
             className={`container ${styles.img_wrapper}`}
