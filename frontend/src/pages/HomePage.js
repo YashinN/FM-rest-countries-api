@@ -4,11 +4,10 @@ import SearchBar from "../Components/SearchBar";
 import FilterCountries from "../Components/FilterCountries";
 import styles from "./HomePage.module.css";
 
-const HomePage = ({ TempData }) => {
+const HomePage = ({ TempData, handleCountryDetails }) => {
   const [data, setData] = useState(TempData);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
-  const [countryDetails, setCountryDetails] = useState(null);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -18,11 +17,6 @@ const HomePage = ({ TempData }) => {
     countryFilter !== "All"
       ? setData(TempData.filter((country) => country.region === countryFilter))
       : setData(TempData);
-  };
-
-  const handleCountryDetails = (country) => {
-    setCountryDetails(country);
-    alert("clicked");
   };
 
   useEffect(() => {
@@ -40,12 +34,12 @@ const HomePage = ({ TempData }) => {
   return (
     <main>
       <div
-        className={`container p-0 ${styles.search_container} ${styles.home_container}`}
+        className={`container p-0 general_container ${styles.search_container}`}
       >
         <SearchBar onSearch={handleSearch} searchQuery={searchQuery} />
         <FilterCountries onFilter={setCountryFilter} />
       </div>
-      <section className={`container p-0  ${styles.home_container} `}>
+      <section className={`container p-0  general_container `}>
         <div
           className={` row  justify-content-between gy-4  ${styles.country_grid}`}
         >
