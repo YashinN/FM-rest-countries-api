@@ -1,7 +1,7 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
 
-const CountryPage = ({ selectedCountry }) => {
+const CountryPage = ({ selectedCountry, setCountryDetails }) => {
   const {
     nativeName,
     population,
@@ -15,7 +15,10 @@ const CountryPage = ({ selectedCountry }) => {
   return (
     <main>
       <section className="container p-0 general_container ">
-        <button className={styles.back_btn}>
+        <button
+          className={styles.back_btn}
+          onClick={() => setCountryDetails(null)}
+        >
           {" "}
           <BackArrow />
           Back
