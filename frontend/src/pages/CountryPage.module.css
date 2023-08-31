@@ -43,6 +43,15 @@
 
 .back_btn {
   margin-bottom: 80px;
+  height: 40px;
+  border: none;
+  background-color: #fff;
+  width: 132px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
 }
 
 /* Country Image */
