@@ -10,5 +10,5 @@
 }
 
 .country_grid {
-  margin: auto;
+  margin: auto !important;
 }
