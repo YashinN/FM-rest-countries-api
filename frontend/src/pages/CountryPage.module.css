@@ -1,0 +1,57 @@
+/* Country Details */
+
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 144px;
+}
+
+.details_wrapper {
+  width: 50%;
+}
+
+.countryDetails ul {
+  list-style: none;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.countryDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Typogography */
+
+.country_title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 32px;
+}
+
+.countryDetails ul li strong {
+  font-weight: 600;
+}
+
+.countryDetails ul li {
+  font-weight: 300;
+}
+
+/* Back button */
+
+.back_btn {
+  margin-bottom: 80px;
+}
+
+/* Country Image */
+
+.img_wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 560px;
+  height: 401px;
+  border-radius: 0.5rem;
+  background-position: center;
+}
