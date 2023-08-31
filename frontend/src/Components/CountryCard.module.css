@@ -3,6 +3,7 @@
   max-height: 336px;
   border-radius: 5px;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .flag_img {
