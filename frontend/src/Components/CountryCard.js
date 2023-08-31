@@ -8,7 +8,7 @@ const CountryCard = ({ country, onCountryDetails }) => {
     >
       <div className={`p-0`}>
         <div className={styles.img_container}>
-          <img className={styles.flag_img} src={country.flag} alt="" />
+          <img className={styles.flag_img} src={country.flags.png} alt="" />
         </div>
 
         <div className={styles.details_container}>
