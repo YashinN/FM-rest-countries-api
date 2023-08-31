@@ -8,6 +8,7 @@ const HomePage = ({ TempData }) => {
   const [data, setData] = useState(TempData);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
+  const [countryDetails, setCountryDetails] = useState(null);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -17,6 +18,11 @@ const HomePage = ({ TempData }) => {
     countryFilter !== "All"
       ? setData(TempData.filter((country) => country.region === countryFilter))
       : setData(TempData);
+  };
+
+  const handleCountryDetails = (country) => {
+    setCountryDetails(country);
+    alert("clicked");
   };
 
   useEffect(() => {
@@ -44,7 +50,10 @@ const HomePage = ({ TempData }) => {
           className={` row  justify-content-between gy-4  ${styles.country_grid}`}
         >
           {data.map((country) => (
-            <CountryCard country={country} />
+            <CountryCard
+              country={country}
+              onCountryDetails={handleCountryDetails}
+            />
           ))}
         </div>
       </section>
