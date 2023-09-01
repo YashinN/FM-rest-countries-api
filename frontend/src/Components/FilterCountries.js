@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 
 const filterTags = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
-const FilterCountries = ({ onFilter }) => {
+const FilterCountries = ({ onFilter, darkMode }) => {
   const [openFilter, setOpenFilter] = useState(false);
   const filtersEl = useRef();
 
@@ -23,11 +23,15 @@ const FilterCountries = ({ onFilter }) => {
   }, [openFilter]);
 
   return (
-    <div ref={filtersEl} className={styles.filter_wrapper}>
+    <div
+      id={darkMode ? "darkTyp" : "lightTyp"}
+      ref={filtersEl}
+      className={styles.filter_wrapper}
+    >
       <div className={`${styles.filter_container}`} onClick={handleFilterState}>
         <p className="m-0">Filter by Region</p>
         <span>
-          <Chevron />
+          <Chevron darkMode={darkMode} />
         </span>
       </div>
 
