@@ -6,16 +6,22 @@ import CountryPage from "./pages/CountryPage";
 import TempData from "./data.json";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
   const [countryDetails, setCountryDetails] = useState(null);
 
   const handleCountryDetails = (country) => {
     setCountryDetails(country);
   };
 
+  useEffect(() => {
+    let color = darkMode ? "#202C36" : "#fafafa";
+    document.body.style.background = color;
+  }, [darkMode]);
+
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Navbar darkMode={darkMode} />
         <Routes>
           <Route
             path="/"
@@ -24,6 +30,7 @@ function App() {
                 <HomePage
                   TempData={TempData}
                   handleCountryDetails={handleCountryDetails}
+                  darkMode={darkMode}
                 />
               ) : (
                 <Navigate to="/country" />
@@ -40,6 +47,7 @@ function App() {
                 <CountryPage
                   selectedCountry={countryDetails}
                   setCountryDetails={setCountryDetails}
+                  TempData={TempData}
                 />
               )
             }
