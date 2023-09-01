@@ -49,6 +49,7 @@ const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
         >
           {data.map((country) => (
             <CountryCard
+              darkMode={darkMode}
               country={country}
               onCountryDetails={handleCountryDetails}
             />
