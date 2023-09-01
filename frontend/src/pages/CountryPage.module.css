@@ -89,6 +89,6 @@
 
 .border_btns {
   display: grid;
-  grid-template-columns: 96px 96px 96px;
+  grid-template-columns: 96px 96px 96px 96px;
   grid-gap: 10px;
 }
