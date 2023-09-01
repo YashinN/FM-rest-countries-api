@@ -48,6 +48,7 @@ function App() {
                   selectedCountry={countryDetails}
                   setCountryDetails={setCountryDetails}
                   TempData={TempData}
+                  darkMode={darkMode}
                 />
               )
             }
