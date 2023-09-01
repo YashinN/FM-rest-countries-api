@@ -65,3 +65,26 @@
   width: 100%;
   height: 401px;
 }
+
+/* country borders */
+
+.borders_container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.border_btn {
+  min-width: 96px;
+  background-color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  height: 28px;
+}
+
+.border_btns {
+  display: grid;
+  grid-template-columns: 96px 96px 96px;
+  grid-gap: 10px;
+}
