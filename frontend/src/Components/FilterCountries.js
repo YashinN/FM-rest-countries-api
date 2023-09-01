@@ -23,12 +23,12 @@ const FilterCountries = ({ onFilter, darkMode }) => {
   }, [openFilter]);
 
   return (
-    <div
-      id={darkMode ? "darkTyp" : "lightTyp"}
-      ref={filtersEl}
-      className={styles.filter_wrapper}
-    >
-      <div className={`${styles.filter_container}`} onClick={handleFilterState}>
+    <div ref={filtersEl} className={styles.filter_wrapper}>
+      <div
+        id={darkMode ? "darkTyp" : "lightTyp"}
+        className={`${styles.filter_container}`}
+        onClick={handleFilterState}
+      >
         <p className="m-0">Filter by Region</p>
         <span>
           <Chevron darkMode={darkMode} />
@@ -36,7 +36,10 @@ const FilterCountries = ({ onFilter, darkMode }) => {
       </div>
 
       {openFilter && (
-        <div className={`${styles.filter_items_container}`}>
+        <div
+          id={darkMode ? "darkTyp" : "lightTyp"}
+          className={`${styles.filter_items_container}`}
+        >
           <ul className={`p-0  ${styles.filter_items}`}>
             {filterTags.map((item) => (
               <li onClick={() => onFilter(item)}>{item}</li>
