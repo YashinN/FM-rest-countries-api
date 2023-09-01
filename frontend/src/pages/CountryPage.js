@@ -28,14 +28,14 @@ const CountryPage = ({
     navigate(`/country/${country.at(0).name}`);
   };
 
+  const handleBack = () => {
+    navigate("/");
+  };
+
   return (
     <main>
       <section className="container p-0 general_container ">
-        <button
-          className={styles.back_btn}
-          onClick={() => setCountryDetails(null)}
-        >
-          {" "}
+        <button className={styles.back_btn} onClick={handleBack}>
           <BackArrow />
           Back
         </button>
