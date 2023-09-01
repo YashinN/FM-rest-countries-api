@@ -4,7 +4,7 @@ import SearchBar from "../Components/SearchBar";
 import FilterCountries from "../Components/FilterCountries";
 import styles from "./HomePage.module.css";
 
-const HomePage = ({ TempData, handleCountryDetails }) => {
+const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
   const [data, setData] = useState(TempData);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
@@ -36,8 +36,12 @@ const HomePage = ({ TempData, handleCountryDetails }) => {
       <div
         className={`container p-0 general_container ${styles.search_container}`}
       >
-        <SearchBar onSearch={handleSearch} searchQuery={searchQuery} />
-        <FilterCountries onFilter={setCountryFilter} />
+        <SearchBar
+          onSearch={handleSearch}
+          searchQuery={searchQuery}
+          darkMode={darkMode}
+        />
+        <FilterCountries onFilter={setCountryFilter} darkMode={darkMode} />
       </div>
       <section className={`container p-0  general_container `}>
         <div
