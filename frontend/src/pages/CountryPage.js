@@ -1,5 +1,6 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CountryPage = ({
   selectedCountry,
@@ -7,6 +8,8 @@ const CountryPage = ({
   TempData,
   darkMode,
 }) => {
+  const navigate = useNavigate();
+
   const {
     nativeName,
     population,
@@ -21,7 +24,8 @@ const CountryPage = ({
 
   const handleBorderCountry = (code) => {
     const country = TempData.filter((country) => country.alpha3Code === code);
-    setCountryDetails(country[0]);
+    setCountryDetails(country.at(0));
+    navigate(`/country/${country.at(0).name}`);
   };
 
   return (
