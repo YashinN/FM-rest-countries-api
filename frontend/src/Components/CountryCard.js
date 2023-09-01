@@ -1,10 +1,11 @@
 import styles from "./CountryCard.module.css";
 
-const CountryCard = ({ country, onCountryDetails }) => {
+const CountryCard = ({ country, onCountryDetails, darkMode }) => {
   return (
     <div
       className={`col-3 p-0 ${styles.country_card}`}
       onClick={() => onCountryDetails(country)}
+      id={darkMode ? "darkTyp" : "lightTyp"}
     >
       <div className={`p-0`}>
         <div className={styles.img_container}>
