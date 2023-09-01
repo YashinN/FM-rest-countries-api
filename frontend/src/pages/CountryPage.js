@@ -1,7 +1,12 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
 
-const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
+const CountryPage = ({
+  selectedCountry,
+  setCountryDetails,
+  TempData,
+  darkMode,
+}) => {
   const {
     nativeName,
     population,
@@ -31,7 +36,11 @@ const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
           Back
         </button>
 
-        <div className={styles.main_container}>
+        <div
+          className={` ${
+            darkMode ? "country_details_dark" : "country_details_light"
+          } ${styles.main_container}`}
+        >
           <div
             className={`container p-0 ${styles.img_wrapper}`}
             style={{ backgroundImage: `url(${selectedCountry.flags.svg})` }}
@@ -94,6 +103,7 @@ const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
               <div className={styles.border_btns}>
                 {borders?.map((code) => (
                   <button
+                    id={darkMode ? "darkTyp" : "lightTyp"}
                     onClick={() => handleBorderCountry(code)}
                     className={styles.border_btn}
                   >
