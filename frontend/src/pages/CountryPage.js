@@ -14,6 +14,11 @@ const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
     borders,
   } = selectedCountry;
 
+  const handleBorderCountry = (code) => {
+    const country = TempData.filter((country) => country.alpha3Code === code);
+    setCountryDetails(country[0]);
+  };
+
   return (
     <main>
       <section className="container p-0 general_container ">
@@ -88,7 +93,12 @@ const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
               </p>
               <div className={styles.border_btns}>
                 {borders?.map((code) => (
-                  <button className={styles.border_btn}>{code}</button>
+                  <button
+                    onClick={() => handleBorderCountry(code)}
+                    className={styles.border_btn}
+                  >
+                    {code}
+                  </button>
                 ))}
               </div>
             </div>
