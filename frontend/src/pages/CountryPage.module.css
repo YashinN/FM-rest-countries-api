@@ -40,6 +40,10 @@
   font-weight: 300;
 }
 
+.borders_container p strong {
+  font-weight: 600;
+}
+
 /* Back button */
 
 .back_btn {

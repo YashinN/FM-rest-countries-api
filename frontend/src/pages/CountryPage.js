@@ -82,7 +82,10 @@ const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
               </ul>
             </div>
             <div className={styles.borders_container}>
-              <h3 className="m-0">Border Countries:</h3>
+              <p className="m-0">
+                {" "}
+                <strong>Border Countries:</strong>
+              </p>
               <div className={styles.border_btns}>
                 {borders?.map((code) => (
                   <button className={styles.border_btn}>{code}</button>
