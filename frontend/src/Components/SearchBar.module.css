@@ -9,11 +9,6 @@
   padding-left: 60px;
 }
 
-.search_bar::placeholder {
-  color: #848484;
-  font-size: 14px;
-}
-
 .search_container {
   position: relative;
 }
