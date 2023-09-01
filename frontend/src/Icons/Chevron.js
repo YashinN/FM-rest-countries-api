@@ -1,4 +1,4 @@
-const Chevron = () => {
+const Chevron = ({ darkMode }) => {
   return (
     <svg
       width="12"
@@ -11,7 +11,7 @@ const Chevron = () => {
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M9.45 3.45L6 6.9L2.55 3.45L1.5 4.5L6 9L10.5 4.5L9.45 3.45Z"
-        fill="black"
+        fill={darkMode ? "#fff" : "#111517"}
       />
     </svg>
   );
