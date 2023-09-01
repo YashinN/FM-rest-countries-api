@@ -12,10 +12,35 @@ body {
   min-width: 100vw;
 }
 
-#light {
-  background-color: hsl(0, 0%, 98%);
-}
-
 .general_container {
   max-width: 1280px !important;
+}
+
+/* Dark and light mode stlyes */
+#light {
+  color: #111517;
+  background-color: #fff;
+}
+
+#dark {
+  color: #fff;
+  background-color: #2b3844;
+}
+
+.searh_input_light::placeholder {
+  color: #848484;
+  font-size: 14px;
+}
+
+.search_input_dark::placeholder {
+  color: #fff;
+  font-size: 14px;
+}
+
+.country_details_light {
+  color: #111517;
+}
+
+.country_details_dark {
+  color: #fff;
 }
