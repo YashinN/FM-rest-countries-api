@@ -1,7 +1,7 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
 
-const CountryPage = ({ selectedCountry, setCountryDetails }) => {
+const CountryPage = ({ selectedCountry, setCountryDetails, TempData }) => {
   const {
     nativeName,
     population,
@@ -11,7 +11,9 @@ const CountryPage = ({ selectedCountry, setCountryDetails }) => {
     topLevelDomain,
     currencies,
     languages,
+    borders,
   } = selectedCountry;
+
   return (
     <main>
       <section className="container p-0 general_container ">
@@ -38,7 +40,15 @@ const CountryPage = ({ selectedCountry, setCountryDetails }) => {
                   <strong>Native Name:</strong> {nativeName}
                 </li>
                 <li>
-                  <strong>Population:</strong> {population}
+                  <strong>Population:</strong>
+                  {String(population)
+                    .split("")
+                    .reverse()
+                    .map((num, i) =>
+                      i === 0 ? num : (i + 1) % 3 === 0 ? "," + num : num
+                    )
+                    .reverse()
+                    .join("")}
                 </li>
                 <li>
                   <strong>Region:</strong> {region}
@@ -70,6 +80,14 @@ const CountryPage = ({ selectedCountry, setCountryDetails }) => {
                   </li>
                 </li>
               </ul>
+            </div>
+            <div className={styles.borders_container}>
+              <h3 className="m-0">Border Countries:</h3>
+              <div className={styles.border_btns}>
+                {borders?.map((code) => (
+                  <button className={styles.border_btn}>{code}</button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
