@@ -35,8 +35,12 @@ const CountryPage = ({
   return (
     <main>
       <section className="container p-0 general_container ">
-        <button className={styles.back_btn} onClick={handleBack}>
-          <BackArrow />
+        <button
+          id={darkMode ? "dark" : "light"}
+          className={styles.back_btn}
+          onClick={handleBack}
+        >
+          <BackArrow darkMode={darkMode} />
           Back
         </button>
 
