@@ -6,7 +6,7 @@ const SearchBar = ({ onSearch, searchQuery, darkMode }) => {
     <div className={styles.search_container}>
       <input
         id={darkMode ? "dark" : "light"}
-        className={`${darkMode ? "searh_input_dark" : "search_input_light"} ${
+        className={`${darkMode ? "search_input_dark" : "search_input_light"} ${
           styles.search_bar
         }`}
         type="text"
