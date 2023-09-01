@@ -7,6 +7,7 @@
   border-radius: 5px;
   box-shadow: #9797977b 0px 7px 29px 0px;
   padding-left: 60px;
+  display: flex;
 }
 
 .search_container {
@@ -15,7 +16,7 @@
 
 .icon_container {
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 32px;
   transform: translate(-50%, -50%);
 }
