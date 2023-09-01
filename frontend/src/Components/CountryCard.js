@@ -5,7 +5,7 @@ const CountryCard = ({ country, onCountryDetails, darkMode }) => {
     <div
       className={`col-3 p-0 ${styles.country_card}`}
       onClick={() => onCountryDetails(country)}
-      id={darkMode ? "darkTyp" : "lightTyp"}
+      id={darkMode ? "dark" : "light"}
     >
       <div className={`p-0`}>
         <div className={styles.img_container}>

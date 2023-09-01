@@ -103,7 +103,7 @@ const CountryPage = ({
               <div className={styles.border_btns}>
                 {borders?.map((code) => (
                   <button
-                    id={darkMode ? "darkTyp" : "lightTyp"}
+                    id={darkMode ? "dark" : "light"}
                     onClick={() => handleBorderCountry(code)}
                     className={styles.border_btn}
                   >

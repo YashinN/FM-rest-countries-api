@@ -25,7 +25,7 @@ const FilterCountries = ({ onFilter, darkMode }) => {
   return (
     <div ref={filtersEl} className={styles.filter_wrapper}>
       <div
-        id={darkMode ? "darkTyp" : "lightTyp"}
+        id={darkMode ? "dark" : "light"}
         className={`${styles.filter_container}`}
         onClick={handleFilterState}
       >
@@ -37,7 +37,7 @@ const FilterCountries = ({ onFilter, darkMode }) => {
 
       {openFilter && (
         <div
-          id={darkMode ? "darkTyp" : "lightTyp"}
+          id={darkMode ? "dark" : "light"}
           className={`${styles.filter_items_container}`}
         >
           <ul className={`p-0  ${styles.filter_items}`}>
