@@ -10,7 +10,10 @@ const Navbar = ({ darkMode }) => {
           id={darkMode ? "dark" : "light"}
           className={`${styles.theme_btn}`}
         >
-          <MoonIcon darkMode={darkMode} /> Dark Mode
+          <span className={styles.moon_icon}>
+            <MoonIcon darkMode={darkMode} />
+          </span>
+          Dark Mode
         </button>
       </div>
     </nav>
