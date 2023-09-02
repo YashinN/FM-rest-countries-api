@@ -44,3 +44,7 @@ body {
 .country_details_dark {
   color: #fff;
 }
+
+main {
+  padding: 0px 20px;
+}
