@@ -6,5 +6,8 @@
 }
 
 .country_grid {
-  margin: auto !important;
+  display: grid;
+  grid-template-columns: 264px 264px 264px 264px;
+  justify-content: space-between;
+  grid-row-gap: 75px;
 }

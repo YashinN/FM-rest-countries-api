@@ -44,7 +44,7 @@ const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
         <FilterCountries onFilter={setCountryFilter} darkMode={darkMode} />
       </div>
       <section className={`container p-0  general_container `}>
-        <div className={`  test  gy-4  ${styles.country_grid}`}>
+        <div className={`${styles.country_grid}`}>
           {data.map((country) => (
             <CountryCard
               darkMode={darkMode}
