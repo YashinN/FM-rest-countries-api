@@ -21,6 +21,10 @@ function App() {
     navigate(`/country/${country.name}`);
   };
 
+  const handleDarkMode = () => {
+    setDarkMode((theme) => !theme);
+  };
+
   useEffect(() => {
     let color = darkMode ? "#202C36" : "#fafafa";
     document.body.style.background = color;
@@ -28,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Navbar darkMode={darkMode} />
+      <Navbar darkMode={darkMode} handleDarkMode={handleDarkMode} />
       <Routes>
         <Route
           path="/"

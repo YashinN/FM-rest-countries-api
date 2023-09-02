@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import MoonIcon from "../Icons/MoonIcon";
 
-const Navbar = ({ darkMode }) => {
+const Navbar = ({ darkMode, handleDarkMode }) => {
   return (
     <nav id={darkMode ? "dark" : "light"} className={`${styles.navbar}`}>
       <div className={styles.nav_container}>
@@ -9,6 +9,7 @@ const Navbar = ({ darkMode }) => {
         <button
           id={darkMode ? "dark" : "light"}
           className={`${styles.theme_btn}`}
+          onClick={handleDarkMode}
         >
           <span className={styles.moon_icon}>
             <MoonIcon darkMode={darkMode} />
