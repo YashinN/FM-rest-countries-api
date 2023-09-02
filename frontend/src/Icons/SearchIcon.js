@@ -1,4 +1,4 @@
-const SearchIcon = (darkMode) => {
+const SearchIcon = ({ darkMode }) => {
   return (
     <svg
       width="18"
