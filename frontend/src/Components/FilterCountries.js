@@ -24,7 +24,7 @@ const FilterCountries = ({ onFilter, darkMode }) => {
 
   return (
     <div ref={filtersEl} className={styles.filter_wrapper}>
-      <div
+      <button
         id={darkMode ? "dark" : "light"}
         className={`${styles.filter_container}`}
         onClick={handleFilterState}
@@ -33,7 +33,7 @@ const FilterCountries = ({ onFilter, darkMode }) => {
         <span>
           <Chevron darkMode={darkMode} />
         </span>
-      </div>
+      </button>
 
       {openFilter && (
         <div

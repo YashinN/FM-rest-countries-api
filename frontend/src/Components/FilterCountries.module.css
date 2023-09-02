@@ -1,13 +1,13 @@
 .filter_container {
   box-shadow: #9797977b 0px 7px 29px 0px;
-  background-color: #fff;
   border-radius: 5px;
+  border: none;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  max-width: 200px !important;
+  width: 200px !important;
   margin-bottom: 4px;
 }
 
