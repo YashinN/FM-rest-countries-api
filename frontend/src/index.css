@@ -48,3 +48,15 @@ body {
 main {
   padding: 0px 55px;
 }
+
+@media (max-width: 960px) {
+  main {
+    padding: 0px 30px;
+  }
+}
+
+@media (max-width: 630px) {
+  main {
+    padding: 0px 16px;
+  }
+}
