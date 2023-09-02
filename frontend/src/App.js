@@ -25,10 +25,8 @@ function App() {
     setDarkMode((theme) => !theme);
   };
 
-  useEffect(() => {
-    let color = darkMode ? "#202C36" : "#fafafa";
-    document.body.style.background = color;
-  }, [darkMode]);
+  let color = darkMode ? "#202C36" : "#fafafa";
+  document.body.style.background = color;
 
   return (
     <>
