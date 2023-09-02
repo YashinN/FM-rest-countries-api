@@ -54,7 +54,7 @@ const CountryPage = ({
             style={{ backgroundImage: `url(${selectedCountry.flags.svg})` }}
           ></div>
 
-          <div className={`containerp-0 ${styles.details_wrapper}`}>
+          <div className={`container p-0 ${styles.details_wrapper}`}>
             <h2 className={styles.country_title}>{selectedCountry.name}</h2>
             <div className={styles.countryDetails}>
               <ul className="p-0">
