@@ -29,7 +29,7 @@
   justify-content: flex-end;
   background: none;
   border: none;
-  gap: 10px;
+  gap: 5px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -37,4 +37,31 @@
 .moon_icon {
   position: relative;
   top: -2px;
+}
+
+@media (max-width: 1430px) {
+  .nav_container {
+    padding: 23px 55px;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav_container {
+    padding: 23px 30px;
+  }
+}
+
+@media (max-width: 630px) {
+  .nav_container {
+    padding: 23px 16px;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav_title {
+    font-size: 16px;
+  }
+  .theme_btn {
+    font-size: 14px;
+  }
 }
