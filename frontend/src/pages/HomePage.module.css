@@ -11,3 +11,24 @@
   justify-content: space-between;
   grid-row-gap: 75px;
 }
+
+@media (max-width: 1220px) {
+  .country_grid {
+    grid-template-columns: 264px 264px 264px;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 960px) {
+  .country_grid {
+    grid-template-columns: 264px 264px;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 690px) {
+  .country_grid {
+    grid-template-columns: 264px;
+    justify-content: space-evenly;
+  }
+}
