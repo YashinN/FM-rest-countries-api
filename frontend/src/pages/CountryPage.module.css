@@ -1,15 +1,15 @@
 /* Country Details */
 
 .main_container {
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  gap: 120px;
   min-height: 401px;
 }
 
 .details_wrapper {
-  width: 100%;
+  max-width: 574px;
 }
 
 .countryDetails ul {
@@ -22,6 +22,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.padding_control {
+  padding: 0px;
 }
 
 /* Typogography */
@@ -62,12 +66,9 @@
 /* Country Image */
 
 .img_wrapper {
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 0.5rem;
-  background-position: center;
-  width: 100%;
-  height: 401px;
+  max-width: 560px;
+  margin: 0;
 }
 
 /* country borders */
@@ -90,4 +91,39 @@
   display: grid;
   grid-template-columns: 96px 96px 96px 96px;
   grid-gap: 10px;
+}
+
+@media (max-width: 1300px) {
+  .main_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 401px;
+    max-width: 580px;
+    row-gap: 44px;
+    margin: 0 auto;
+    margin-bottom: 57px;
+  }
+}
+
+@media (max-width: 630px) {
+  .countryDetails {
+    flex-direction: column;
+    gap: 55px;
+    margin-bottom: 34px;
+  }
+
+  .borders_container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .border_btns {
+    display: grid;
+    grid-template-columns: 96px 96px 96px;
+    grid-gap: 10px;
+  }
+
+  .padding_control {
+    padding: 0px 16px;
+  }
 }
