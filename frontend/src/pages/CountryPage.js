@@ -34,7 +34,9 @@ const CountryPage = ({
 
   return (
     <main>
-      <section className="container p-0 general_container ">
+      <section
+        className={`container  general_container ${styles.padding_control}`}
+      >
         <button
           id={darkMode ? "dark" : "light"}
           className={styles.back_btn}
@@ -49,10 +51,9 @@ const CountryPage = ({
             darkMode ? "country_details_dark" : "country_details_light"
           } ${styles.main_container}`}
         >
-          <div
-            className={`container p-0 ${styles.img_wrapper}`}
-            style={{ backgroundImage: `url(${selectedCountry.flags.svg})` }}
-          ></div>
+          <div className={`container p-0 ${styles.img_wrapper}`}>
+            <img className="test" src={selectedCountry.flags.svg} alt="" />
+          </div>
 
           <div className={`container p-0 ${styles.details_wrapper}`}>
             <h2 className={styles.country_title}>{selectedCountry.name}</h2>
