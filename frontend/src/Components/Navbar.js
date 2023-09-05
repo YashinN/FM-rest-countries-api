@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 
 const headerVariants = {
   hidden: { x: "-100vw" },
-  visible: { x: 0, transition: { duration: 0.7, type: "spring" } },
+  visible: { x: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
 };
 
 const buttonVariants = {
   hidden: { x: "100vw" },
-  visible: { x: 0, transition: { duration: 0.5, type: "spring" } },
+  visible: { x: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
 };
 
 const Navbar = ({ darkMode, handleDarkMode }) => {
