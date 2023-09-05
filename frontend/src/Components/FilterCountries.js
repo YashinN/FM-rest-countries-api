@@ -1,6 +1,12 @@
 import styles from "./FilterCountries.module.css";
 import Chevron from "../Icons/Chevron";
 import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+
+const filterVariant = {
+  hidden: { y: "-100vh" },
+  visible: { y: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
+};
 
 const filterTags = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -23,7 +29,13 @@ const FilterCountries = ({ onFilter, darkMode }) => {
   }, [openFilter]);
 
   return (
-    <div ref={filtersEl} className={styles.filter_wrapper}>
+    <motion.div
+      ref={filtersEl}
+      className={styles.filter_wrapper}
+      variants={filterVariant}
+      animate="visible"
+      initial="hidden"
+    >
       <button
         id={darkMode ? "dark" : "light"}
         className={`${styles.filter_container}`}
@@ -47,7 +59,7 @@ const FilterCountries = ({ onFilter, darkMode }) => {
           </ul>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
