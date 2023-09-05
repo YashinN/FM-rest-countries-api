@@ -4,8 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const filterVariant = {
-  hidden: { y: "-100vh" },
-  visible: { y: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
+  hidden: { x: "100vw" },
+  visible: { x: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
 };
 
 const filterTags = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
