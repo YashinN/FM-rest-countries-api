@@ -54,11 +54,14 @@ const FilterCountries = ({ onFilter, darkMode }) => {
           id={darkMode ? "dark" : "light"}
           className={`${styles.filter_items_container}`}
         >
-          <ul className={`p-0  ${styles.filter_items}`}>
+          <motion.ul
+            className={`p-0  ${styles.filter_items}`}
+            animate={{ height: openFilter ? "100%" : 0 }}
+          >
             {filterTags.map((item) => (
               <li onClick={() => onFilter(item)}>{item}</li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       )}
     </motion.div>
