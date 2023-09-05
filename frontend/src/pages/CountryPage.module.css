@@ -5,6 +5,7 @@
   align-items: center;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
+  gap: 122px;
   min-height: 401px;
 }
 
