@@ -1,9 +1,20 @@
 import styles from "./SearchBar.module.css";
 import SearchIcon from "../Icons/SearchIcon";
+import { motion } from "framer-motion";
+
+const searchVariant = {
+  hidden: { x: "-100vw" },
+  visible: { x: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
+};
 
 const SearchBar = ({ onSearch, searchQuery, darkMode }) => {
   return (
-    <div className={styles.search_container}>
+    <motion.div
+      className={styles.search_container}
+      variants={searchVariant}
+      animate="visible"
+      initial="hidden"
+    >
       <input
         id={darkMode ? "dark" : "light"}
         className={`${darkMode ? "search_input_dark" : "search_input_light"} ${
@@ -18,7 +29,7 @@ const SearchBar = ({ onSearch, searchQuery, darkMode }) => {
       <span className={styles.icon_container}>
         <SearchIcon darkMode={darkMode} />
       </span>
-    </div>
+    </motion.div>
   );
 };
 
