@@ -1,6 +1,6 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CountryPage = ({
   selectedCountry,
