@@ -8,6 +8,20 @@ const filterVariant = {
   visible: { x: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
 };
 
+const childVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.3,
+    x: 100,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    transition: { duration: 0.5, delay: 0.4, type: "spring" },
+  },
+};
+
 const filterTags = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const FilterCountries = ({ onFilter, darkMode }) => {
@@ -56,10 +70,26 @@ const FilterCountries = ({ onFilter, darkMode }) => {
         >
           <motion.ul
             className={`p-0  ${styles.filter_items}`}
-            animate={{ height: openFilter ? "100%" : 0 }}
+            initial={{ height: 0 }}
+            animate={{
+              height: openFilter ? 144 : 0,
+              transition: {
+                duration: 0.2,
+                type: "Spring",
+                staggerChildren: 0.1,
+                when: "beforeChildren",
+              },
+            }}
           >
             {filterTags.map((item) => (
-              <li onClick={() => onFilter(item)}>{item}</li>
+              <motion.li
+                onClick={() => onFilter(item)}
+                variants={childVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {item}{" "}
+              </motion.li>
             ))}
           </motion.ul>
         </div>
