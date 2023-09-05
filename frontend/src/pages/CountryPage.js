@@ -52,7 +52,11 @@ const CountryPage = ({
           } ${styles.main_container}`}
         >
           <div className={`container p-0 ${styles.img_wrapper}`}>
-            <img className="test" src={selectedCountry.flags.svg} alt="" />
+            <img
+              className={styles.country_img}
+              src={selectedCountry.flags.svg}
+              alt=""
+            />
           </div>
 
           <div className={`container p-0 ${styles.details_wrapper}`}>
