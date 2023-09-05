@@ -36,16 +36,18 @@ const FilterCountries = ({ onFilter, darkMode }) => {
       animate="visible"
       initial="hidden"
     >
-      <button
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 1 }}
         id={darkMode ? "dark" : "light"}
         className={`${styles.filter_container}`}
         onClick={handleFilterState}
       >
         <p className="m-0">Filter by Region</p>
-        <span>
+        <motion.span animate={{ rotate: openFilter ? 0 : -180 }}>
           <Chevron darkMode={darkMode} />
-        </span>
-      </button>
+        </motion.span>
+      </motion.button>
 
       {openFilter && (
         <div
