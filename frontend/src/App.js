@@ -1,11 +1,5 @@
-import { useEffect, useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
@@ -13,7 +7,7 @@ import TempData from "./data.json";
 
 function App() {
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [countryDetails, setCountryDetails] = useState(null);
 
   const handleCountryDetails = (country) => {
