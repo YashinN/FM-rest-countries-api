@@ -11,6 +11,8 @@ const CountryCard = ({ country, onCountryDetails, darkMode }) => {
         type: "spring",
         damping: 10,
       }}
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.1 }}
       viewport={{ once: true }}
       className={` p-0 ${styles.country_card}`}
       onClick={() => onCountryDetails(country)}
