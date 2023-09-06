@@ -30,6 +30,11 @@
   cursor: pointer;
 }
 
+.filter_items li:hover {
+  font-weight: 800;
+  font-size: 14px;
+}
+
 .filter_items_container ul :last-child {
   margin-bottom: 0;
 }
