@@ -18,7 +18,19 @@ const childVariants = {
     opacity: 1,
     scale: 1,
     x: 0,
-    transition: { duration: 0.5, delay: 0.4, type: "spring" },
+  },
+};
+
+const ulVariants = {
+  hidden: { height: 0 },
+  visible: {
+    height: 144,
+    transition: {
+      when: "beforeChildren",
+      type: "spring",
+      duration: 0.4,
+      staggerChildren: 0.05,
+    },
   },
 };
 
@@ -69,24 +81,17 @@ const FilterCountries = ({ onFilter, darkMode }) => {
           className={`${styles.filter_items_container}`}
         >
           <motion.ul
+            variants={ulVariants}
+            initial="hidden"
+            animate="visible"
             className={`p-0  ${styles.filter_items}`}
-            initial={{ height: 0 }}
-            animate={{
-              height: openFilter ? 144 : 0,
-              transition: {
-                duration: 0.2,
-                type: "Spring",
-                staggerChildren: 0.1,
-                when: "beforeChildren",
-              },
-            }}
+            custom={onFilter}
           >
             {filterTags.map((item) => (
               <motion.li
+                key={item}
                 onClick={() => onFilter(item)}
                 variants={childVariants}
-                initial="hidden"
-                animate="visible"
               >
                 {item}{" "}
               </motion.li>
