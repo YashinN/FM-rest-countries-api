@@ -40,6 +40,31 @@ const detailsVariant = {
   },
 };
 
+const childVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.3,
+    x: 100,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+  },
+};
+
+const borderVariants = {
+  hidden: { x: "-100vw" },
+  visible: {
+    x: 0,
+    transition: {
+      duration: 0.2,
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 const CountryPage = ({
   selectedCountry,
   setCountryDetails,
@@ -161,22 +186,29 @@ const CountryPage = ({
                 </li>
               </ul>
             </div>
+
             <div className={styles.borders_container}>
               <p className="m-0">
                 {" "}
                 <strong>Border Countries:</strong>
               </p>
-              <div className={styles.border_btns}>
+              <motion.div
+                className={styles.border_btns}
+                variants={borderVariants}
+                initial="hidden"
+                whileInView="visible"
+              >
                 {borders?.map((code) => (
-                  <button
+                  <motion.button
+                    variants={childVariants}
                     id={darkMode ? "dark" : "light"}
                     onClick={() => handleBorderCountry(code)}
                     className={styles.border_btn}
                   >
                     {code}
-                  </button>
+                  </motion.button>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
