@@ -1,6 +1,44 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const backVariant = {
+  hidden: { y: "-100vw" },
+  visible: {
+    y: 0,
+    transition: {
+      type: "spring",
+      duration: 0.7,
+    },
+  },
+  hover: {
+    scale: 1.1,
+  },
+  tap: {
+    scale: 0.9,
+  },
+};
+
+const imageVariant = {
+  hidden: { x: "-100vw" },
+  visible: {
+    x: 0,
+    transition: {
+      type: "tween",
+    },
+  },
+};
+
+const detailsVariant = {
+  hidden: { x: "100vw" },
+  visible: {
+    x: 0,
+    transition: {
+      type: "tween",
+    },
+  },
+};
 
 const CountryPage = ({
   selectedCountry,
@@ -37,29 +75,44 @@ const CountryPage = ({
       <section
         className={`container  general_container ${styles.padding_control}`}
       >
-        <button
+        <motion.button
+          variants={backVariant}
+          initial="hidden"
+          animate="visible"
+          whileHover="hover"
+          whileTap="tap"
           id={darkMode ? "dark" : "light"}
           className={styles.back_btn}
           onClick={handleBack}
         >
           <BackArrow darkMode={darkMode} />
           Back
-        </button>
+        </motion.button>
 
         <div
           className={` ${
             darkMode ? "country_details_dark" : "country_details_light"
           } ${styles.main_container}`}
         >
-          <div className={`container p-0 ${styles.img_wrapper}`}>
+          <motion.div
+            className={`container p-0 ${styles.img_wrapper}`}
+            variants={imageVariant}
+            animate="visible"
+            initial="hidden"
+          >
             <img
               className={styles.country_img}
               src={selectedCountry.flags.svg}
               alt=""
             />
-          </div>
+          </motion.div>
 
-          <div className={`container p-0 ${styles.details_wrapper}`}>
+          <motion.div
+            className={`container p-0 ${styles.details_wrapper}`}
+            variants={detailsVariant}
+            animate="visible"
+            initial="hidden"
+          >
             <h2 className={styles.country_title}>{selectedCountry.name}</h2>
             <div className={styles.countryDetails}>
               <ul className="p-0">
@@ -125,7 +178,7 @@ const CountryPage = ({
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>
