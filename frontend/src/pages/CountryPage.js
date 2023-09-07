@@ -68,7 +68,7 @@ const borderVariants = {
 const CountryPage = ({
   selectedCountry,
   setCountryDetails,
-  TempData,
+  allCountries,
   darkMode,
 }) => {
   const navigate = useNavigate();
@@ -86,7 +86,9 @@ const CountryPage = ({
   } = selectedCountry;
 
   const handleBorderCountry = (code) => {
-    const country = TempData.filter((country) => country.alpha3Code === code);
+    const country = allCountries.filter(
+      (country) => country.alpha3Code === code
+    );
     setCountryDetails(country.at(0));
     navigate(`/country/${country.at(0).name}`);
   };

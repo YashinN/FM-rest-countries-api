@@ -9,6 +9,7 @@ function App() {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
   const [countryDetails, setCountryDetails] = useState(null);
+  const [allCountries, setAllcountries] = useState(TempData);
 
   const handleCountryDetails = (country) => {
     setCountryDetails(country);
@@ -30,7 +31,7 @@ function App() {
           path="/"
           element={
             <HomePage
-              TempData={TempData}
+              allCountries={allCountries}
               handleCountryDetails={handleCountryDetails}
               darkMode={darkMode}
             />
@@ -43,7 +44,7 @@ function App() {
             <CountryPage
               selectedCountry={countryDetails}
               setCountryDetails={setCountryDetails}
-              TempData={TempData}
+              allCountries={allCountries}
               darkMode={darkMode}
             />
           }
