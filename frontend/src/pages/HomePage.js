@@ -4,10 +4,25 @@ import SearchBar from "../Components/SearchBar";
 import FilterCountries from "../Components/FilterCountries";
 import styles from "./HomePage.module.css";
 
-const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
-  const [data, setData] = useState(TempData);
+const HomePage = ({ allCountries, handleCountryDetails, darkMode }) => {
+  const [countriesData, setCountriesData] = useState(allCountries);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
+  const [currPage, setCurrPage] = useState(13);
+
+  let x = countriesData.filter((country) =>
+    country.name.toLowerCase().includes("".toLowerCase())
+  );
+
+  // const numItemsPerPage = 20;
+  // const page = 13;
+
+  // const numpages = Math.ceil(TempData.length / numItemsPerPage);
+
+  // const x = TempData.slice(
+  //   currPage * numItemsPerPage - numItemsPerPage,
+  //   currPage * numItemsPerPage
+  // );
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -15,17 +30,23 @@ const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
 
   const handleFilter = () => {
     countryFilter !== "All"
-      ? setData(TempData.filter((country) => country.region === countryFilter))
-      : setData(TempData);
+      ? setCountriesData(
+          allCountries
+            .filter((country) => country.region === countryFilter)
+            .filter((country) =>
+              country.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+        )
+      : setCountriesData(allCountries);
   };
 
   useEffect(() => {
-    setData(
-      TempData.filter((country) =>
+    setCountriesData(
+      allCountries.filter((country) =>
         country.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
     );
-  }, [TempData, searchQuery]);
+  }, [allCountries, searchQuery]);
 
   useEffect(() => {
     handleFilter();
@@ -43,9 +64,10 @@ const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
         />
         <FilterCountries onFilter={setCountryFilter} darkMode={darkMode} />
       </div>
+      <button onClick={() => setCurrPage((prev) => prev++)}>click me</button>
       <section className={`container p-0  general_container `}>
         <div className={`${styles.country_grid}`}>
-          {data.map((country) => (
+          {countriesData.map((country) => (
             <CountryCard
               darkMode={darkMode}
               country={country}
