@@ -1,7 +1,7 @@
 import styles from "./CountryCard.module.css";
 import { motion } from "framer-motion";
 
-const CountryCard = ({ country, onCountryDetails, darkMode }) => {
+const CountryCard = ({ country, darkMode }) => {
   return (
     <motion.div
       initial={{ x: -100 }}
@@ -15,7 +15,6 @@ const CountryCard = ({ country, onCountryDetails, darkMode }) => {
       whileHover={{ scale: 1.1 }}
       viewport={{ once: true }}
       className={` p-0 ${styles.country_card}`}
-      onClick={() => onCountryDetails(country)}
       id={darkMode ? "dark" : "light"}
     >
       <div className={`p-0`}>
