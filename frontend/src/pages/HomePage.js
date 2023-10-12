@@ -5,7 +5,7 @@ import FilterCountries from "../Components/FilterCountries";
 import styles from "./HomePage.module.css";
 import { Link } from "react-router-dom";
 
-const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
+const HomePage = ({ TempData, darkMode }) => {
   const [data, setData] = useState(TempData);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
@@ -48,11 +48,7 @@ const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
         <div className={`${styles.country_grid}`}>
           {data.map((country) => (
             <Link to={`/country/${country.name}`}>
-              <CountryCard
-                darkMode={darkMode}
-                country={country}
-                onCountryDetails={handleCountryDetails}
-              />
+              <CountryCard darkMode={darkMode} country={country} />
             </Link>
           ))}
         </div>
