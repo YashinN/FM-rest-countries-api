@@ -9,10 +9,6 @@ function App() {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
 
-  const handleCountryDetails = (country) => {
-    navigate(`/country/${country.name}`);
-  };
-
   const handleDarkMode = () => {
     setDarkMode((theme) => !theme);
   };
@@ -26,13 +22,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <HomePage
-              TempData={TempData}
-              handleCountryDetails={handleCountryDetails}
-              darkMode={darkMode}
-            />
-          }
+          element={<HomePage TempData={TempData} darkMode={darkMode} />}
         />
 
         <Route
