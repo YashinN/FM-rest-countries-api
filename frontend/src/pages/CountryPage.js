@@ -1,6 +1,6 @@
 import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const backVariant = {
@@ -65,13 +65,12 @@ const borderVariants = {
   },
 };
 
-const CountryPage = ({
-  selectedCountry,
-  setCountryDetails,
-  TempData,
-  darkMode,
-}) => {
+const CountryPage = ({ TempData, darkMode }) => {
   const navigate = useNavigate();
+
+  const { id } = useParams();
+
+  const selectedCountry = TempData.filter((country) => country.name === id);
 
   const {
     nativeName,
@@ -83,11 +82,11 @@ const CountryPage = ({
     currencies,
     languages,
     borders,
-  } = selectedCountry;
+    flags,
+  } = selectedCountry[0];
 
   const handleBorderCountry = (code) => {
     const country = TempData.filter((country) => country.alpha3Code === code);
-    setCountryDetails(country.at(0));
     navigate(`/country/${country.at(0).name}`);
   };
 
@@ -125,11 +124,7 @@ const CountryPage = ({
             animate="visible"
             initial="hidden"
           >
-            <img
-              className={styles.country_img}
-              src={selectedCountry.flags.svg}
-              alt=""
-            />
+            <img className={styles.country_img} src={flags.svg} alt="" />
           </motion.div>
 
           <motion.div
