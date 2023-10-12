@@ -12,6 +12,10 @@
   grid-row-gap: 75px;
 }
 
+.country_grid a {
+  text-decoration: none;
+}
+
 @media (max-width: 1220px) {
   .country_grid {
     grid-template-columns: 264px 264px 264px;
