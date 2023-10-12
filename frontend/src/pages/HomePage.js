@@ -3,6 +3,7 @@ import CountryCard from "../Components/CountryCard";
 import SearchBar from "../Components/SearchBar";
 import FilterCountries from "../Components/FilterCountries";
 import styles from "./HomePage.module.css";
+import { Link } from "react-router-dom";
 
 const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
   const [data, setData] = useState(TempData);
@@ -46,11 +47,13 @@ const HomePage = ({ TempData, handleCountryDetails, darkMode }) => {
       <section className={`container p-0  general_container `}>
         <div className={`${styles.country_grid}`}>
           {data.map((country) => (
-            <CountryCard
-              darkMode={darkMode}
-              country={country}
-              onCountryDetails={handleCountryDetails}
-            />
+            <Link to={`/country/${country.name}`}>
+              <CountryCard
+                darkMode={darkMode}
+                country={country}
+                onCountryDetails={handleCountryDetails}
+              />
+            </Link>
           ))}
         </div>
       </section>
