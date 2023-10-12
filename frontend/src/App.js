@@ -8,10 +8,8 @@ import TempData from "./data.json";
 function App() {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
-  const [countryDetails, setCountryDetails] = useState(null);
 
   const handleCountryDetails = (country) => {
-    setCountryDetails(country);
     navigate(`/country/${country.name}`);
   };
 
@@ -39,14 +37,7 @@ function App() {
 
         <Route
           path="/country/:id"
-          element={
-            <CountryPage
-              selectedCountry={countryDetails}
-              setCountryDetails={setCountryDetails}
-              TempData={TempData}
-              darkMode={darkMode}
-            />
-          }
+          element={<CountryPage TempData={TempData} darkMode={darkMode} />}
         />
 
         <Route path="*" element={<Navigate to="/" />} />
