@@ -28,7 +28,7 @@ const ulVariants = {
     transition: {
       when: "beforeChildren",
       type: "spring",
-      duration: 0.4,
+      duration: 0.2,
       staggerChildren: 0.05,
     },
   },
