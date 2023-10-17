@@ -1,3 +1,5 @@
+import { thousandsSeparator, commaSeparateItems } from "../Utilities/utils";
+
 const CountryDetails = ({ styles, selectedCountry }) => {
   const {
     nativeName,
@@ -19,14 +21,7 @@ const CountryDetails = ({ styles, selectedCountry }) => {
           </li>
           <li>
             <strong>Population:</strong>
-            {String(population)
-              .split("")
-              .reverse()
-              .map((num, i) =>
-                i === 0 ? num : (i + 1) % 3 === 0 ? "," + num : num
-              )
-              .reverse()
-              .join("")}
+            {thousandsSeparator(population)}
           </li>
           <li>
             <strong>Region:</strong> {region}
@@ -45,16 +40,11 @@ const CountryDetails = ({ styles, selectedCountry }) => {
               <strong>Top Level Domain:</strong> {topLevelDomain}
             </li>
             <li>
-              <strong>Currencies:</strong>{" "}
-              {currencies?.map((cur, i) =>
-                currencies.length === i + 1 ? cur.name : cur.name + ","
-              )}
+              <strong>Currencies:</strong> {commaSeparateItems(currencies)}
             </li>
             <li>
-              <strong>Languages:</strong>{" "}
-              {languages?.map((lan, i) =>
-                languages.length === i + 1 ? lan.name : lan.name + ","
-              )}
+              <strong>Languages:</strong>
+              {commaSeparateItems(languages)}
             </li>
           </li>
         </ul>

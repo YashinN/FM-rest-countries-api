@@ -1,5 +1,6 @@
 import styles from "./CountryCard.module.css";
 import { motion } from "framer-motion";
+import { thousandsSeparator } from "../Utilities/utils";
 
 const CountryCard = ({ country, darkMode }) => {
   return (
@@ -26,14 +27,12 @@ const CountryCard = ({ country, darkMode }) => {
           <h2 className="">{country.name}</h2>
           <p>
             <strong> Population:</strong>
-            {country.population}{" "}
+            {thousandsSeparator(country.population)}
           </p>
           <p>
-            {" "}
             <strong>Region:</strong> {country.region}
           </p>
           <p>
-            {" "}
             <strong>Capital:</strong>
             {country.capital}{" "}
           </p>
