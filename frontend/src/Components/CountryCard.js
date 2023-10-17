@@ -7,7 +7,7 @@ const CountryCard = ({ country, darkMode }) => {
       initial={{ x: -100 }}
       whileInView={{ x: 0 }}
       transition={{
-        duration: 0.7,
+        duration: 0.2,
         type: "spring",
         damping: 10,
       }}

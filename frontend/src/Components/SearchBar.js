@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const searchVariant = {
   hidden: { x: "-100vw" },
-  visible: { x: 0, transition: { duration: 0.7, type: "spring", damping: 10 } },
+  visible: { x: 0, transition: { duration: 0.2, type: "spring", damping: 16 } },
   hover: {
     scale: 1.1,
   },
