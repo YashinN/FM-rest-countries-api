@@ -85,13 +85,12 @@ const CountryPage = ({ TempData, darkMode }) => {
           >
             <CountryDetails styles={styles} selectedCountry={selectedCountry} />
 
-            {/* 
             <BorderCountries
               styles={styles}
               onBorderCountry={handleBorderCountry}
-              borderCountries={borders}
+              selectedCountry={selectedCountry}
               darkMode={darkMode}
-            /> */}
+            />
           </motion.div>
         </div>
       </section>

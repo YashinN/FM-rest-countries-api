@@ -27,10 +27,11 @@ const borderVariants = {
 
 const BorderCountries = ({
   styles,
-  borderCountries,
+  selectedCountry,
   onBorderCountry,
   darkMode,
 }) => {
+  const { borders } = selectedCountry[0];
   return (
     <div className={styles.borders_container}>
       <p className="m-0">
@@ -42,7 +43,7 @@ const BorderCountries = ({
         initial="hidden"
         whileInView="visible"
       >
-        {borderCountries?.map((code) => (
+        {borders?.map((code) => (
           <motion.button
             variants={childVariants}
             id={darkMode ? "dark" : "light"}
