@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
 import TempData from "./data.json";
 
 function App() {
-  const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
 
   const handleDarkMode = () => {

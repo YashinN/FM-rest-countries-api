@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const CountryDetails = ({ styles, selectedCountry }) => {
   const {
     nativeName,
@@ -10,8 +8,6 @@ const CountryDetails = ({ styles, selectedCountry }) => {
     topLevelDomain,
     currencies,
     languages,
-    borders,
-    flags,
   } = selectedCountry[0];
   return (
     <>

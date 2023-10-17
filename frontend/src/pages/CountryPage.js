@@ -1,27 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import styles from "./CountryPage.module.css";
-import BackArrow from "../Icons/BackArrow";
 import BorderCountries from "../Components/BorderCountries";
 import CountryDetails from "../Components/CountryDetails";
 import CountryDetailsImage from "../Components/CountryDetailsImage";
-
-const backVariant = {
-  hidden: { y: "-100vw" },
-  visible: {
-    y: 0,
-    transition: {
-      type: "spring",
-      duration: 0.7,
-    },
-  },
-  hover: {
-    scale: 1.1,
-  },
-  tap: {
-    scale: 0.9,
-  },
-};
+import BackButton from "../Components/BackButton";
 
 const detailsVariant = {
   hidden: { x: "100vw" },
@@ -44,29 +27,12 @@ const CountryPage = ({ TempData, darkMode }) => {
     navigate(`/country/${country.at(0).name}`);
   };
 
-  const handleBack = () => {
-    navigate("/");
-  };
-
   return (
     <main>
       <section
         className={`container  general_container ${styles.padding_control}`}
       >
-        <motion.button
-          variants={backVariant}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          whileTap="tap"
-          id={darkMode ? "dark" : "light"}
-          className={styles.back_btn}
-          onClick={handleBack}
-        >
-          <BackArrow darkMode={darkMode} />
-          Back
-        </motion.button>
-
+        <BackButton darkMode={darkMode} styles={styles} />
         <div
           className={` ${
             darkMode ? "country_details_dark" : "country_details_light"
