@@ -4,6 +4,7 @@ import styles from "./CountryPage.module.css";
 import BackArrow from "../Icons/BackArrow";
 import BorderCountries from "../Components/BorderCountries";
 import CountryDetails from "../Components/CountryDetails";
+import CountryDetailsImage from "../Components/CountryDetailsImage";
 
 const backVariant = {
   hidden: { y: "-100vw" },
@@ -22,16 +23,6 @@ const backVariant = {
   },
 };
 
-const imageVariant = {
-  hidden: { x: "-100vw" },
-  visible: {
-    x: 0,
-    transition: {
-      type: "tween",
-    },
-  },
-};
-
 const detailsVariant = {
   hidden: { x: "100vw" },
   visible: {
@@ -47,19 +38,6 @@ const CountryPage = ({ TempData, darkMode }) => {
   const { id } = useParams();
 
   const selectedCountry = TempData.filter((country) => country.name === id);
-
-  // const {
-  //   nativeName,
-  //   population,
-  //   region,
-  //   subregion,
-  //   capital,
-  //   topLevelDomain,
-  //   currencies,
-  //   languages,
-  //   borders,
-  //   flags,
-  // } = selectedCountry[0];
 
   const handleBorderCountry = (code) => {
     const country = TempData.filter((country) => country.alpha3Code === code);
@@ -94,14 +72,10 @@ const CountryPage = ({ TempData, darkMode }) => {
             darkMode ? "country_details_dark" : "country_details_light"
           } ${styles.main_container}`}
         >
-          {/* <motion.div
-            className={`container p-0 ${styles.img_wrapper}`}
-            variants={imageVariant}
-            animate="visible"
-            initial="hidden"
-          >
-            <img className={styles.country_img} src={flags.svg} alt="" />
-          </motion.div> */}
+          <CountryDetailsImage
+            styles={styles}
+            selectedCountry={selectedCountry}
+          />
 
           <motion.div
             className={`container p-0 ${styles.details_wrapper}`}
