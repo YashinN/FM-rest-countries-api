@@ -1,18 +1,15 @@
 // index.js
 const express = require("express");
+const testData = require("./data.json");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 const testRoutes = require("./routes/testRoutes");
 
-// app.get("/", (req, res) => {
-//   res.send("Hey this is my API running 🥳");
-// });
-
-// app.get("/about", (req, res) => {
-//   res.send("This is my about route..... ");
-// });
+app.get("/api/countries", (req, res) => {
+  res.send(testData);
+});
 
 app.use("/test", testRoutes);
 

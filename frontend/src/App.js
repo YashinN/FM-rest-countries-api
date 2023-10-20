@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
-import TempData from "./data.json";
+// import TempData from "./data.json";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [TempData, setTempData] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/api/countries")
+  //     .then((res) => res.json())
+  //     .then((data) => setTempData(data));
+  // }, []);
 
   const handleDarkMode = () => {
     setDarkMode((theme) => !theme);
