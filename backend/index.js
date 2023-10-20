@@ -3,10 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const testData = require("./data.json");
 
-app.use(cors());
-
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+app.use(cors());
 
 const testRoutes = require("./routes/testRoutes");
 
