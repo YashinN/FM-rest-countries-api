@@ -8,7 +8,7 @@ const countryRoutes = require("./routes/countryRoutes");
 
 const PORT = process.env.PORT || 4000;
 const app = express();
-connectDB();
+// connectDB();
 
 app.use(cors());
 app.use("/api", countryRoutes);
