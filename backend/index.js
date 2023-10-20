@@ -17,5 +17,16 @@ app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `);
 });
 
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(`server running on port ${process.env.PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
 // Export the Express AP
 module.exports = app;
