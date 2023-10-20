@@ -9,11 +9,25 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [TempData, setTempData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/api/countries")
-  //     .then((res) => res.json())
-  //     .then((data) => setTempData(data));
-  // }, []);
+  useEffect(() => {
+    const getCountries = async () => {
+      const response = await fetch(
+        "https://fm-rest-countries-api-sand.vercel.app/api/countries",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+    };
+
+    getCountries();
+  }, []);
 
   const handleDarkMode = () => {
     setDarkMode((theme) => !theme);
