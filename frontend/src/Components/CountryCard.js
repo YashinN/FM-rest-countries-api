@@ -5,13 +5,13 @@ import { thousandsSeparator } from "../Utilities/utils";
 const CountryCard = ({ country, darkMode }) => {
   return (
     <motion.div
-      initial={{ x: -100 }}
-      whileInView={{ x: 0 }}
-      transition={{
-        duration: 0.2,
-        type: "spring",
-        damping: 10,
-      }}
+      // initial={{ x: -100 }}
+      // whileInView={{ x: 0 }}
+      // transition={{
+      //   duration: 0.2,
+      //   type: "spring",
+      //   damping: 10,
+      // }}
       whileTap={{ scale: 0.9 }}
       whileHover={{ scale: 1.1 }}
       viewport={{ once: true }}

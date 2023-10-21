@@ -17,10 +17,10 @@ const SearchBar = ({ onSearch, searchQuery, darkMode }) => {
   return (
     <motion.div
       className={styles.search_container}
-      variants={searchVariant}
-      animate="visible"
-      initial="hidden"
-      whileHover="hover"
+      // variants={searchVariant}
+      // animate="visible"
+      // initial="hidden"
+      // whileHover="hover"
     >
       <motion.input
         ref={ref}

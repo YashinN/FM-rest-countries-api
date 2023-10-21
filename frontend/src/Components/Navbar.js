@@ -18,9 +18,9 @@ const Navbar = ({ darkMode, handleDarkMode }) => {
       <div className={styles.nav_container}>
         <motion.h1
           className={`${styles.nav_title}  mb-0`}
-          variants={headerVariants}
-          animate="visible"
-          initial="hidden"
+          // variants={headerVariants}
+          // animate="visible"
+          // initial="hidden"
         >
           Where in the world?
         </motion.h1>
@@ -28,9 +28,9 @@ const Navbar = ({ darkMode, handleDarkMode }) => {
           id={darkMode ? "dark" : "light"}
           className={`${styles.theme_btn}`}
           onClick={handleDarkMode}
-          variants={buttonVariants}
-          animate="visible"
-          initial="hidden"
+          // variants={buttonVariants}
+          // animate="visible"
+          // initial="hidden"
         >
           <span className={styles.moon_icon}>
             <MoonIcon darkMode={darkMode} />

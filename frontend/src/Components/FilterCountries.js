@@ -58,9 +58,9 @@ const FilterCountries = ({ onFilter, darkMode }) => {
     <motion.div
       ref={filtersEl}
       className={styles.filter_wrapper}
-      variants={filterVariant}
-      animate="visible"
-      initial="hidden"
+      // variants={filterVariant}
+      // animate="visible"
+      // initial="hidden"
     >
       <motion.button
         whileHover={{ scale: 1.1 }}
@@ -81,9 +81,9 @@ const FilterCountries = ({ onFilter, darkMode }) => {
           className={`${styles.filter_items_container}`}
         >
           <motion.ul
-            variants={ulVariants}
-            initial="hidden"
-            animate="visible"
+            // variants={ulVariants}
+            // initial="hidden"
+            // animate="visible"
             className={`p-0  ${styles.filter_items}`}
             custom={onFilter}
           >
