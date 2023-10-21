@@ -11,7 +11,7 @@ const PORT = 4000;
 
 app.use(cors());
 
-app.use("/", countriesRoutes);
+app.use("/api", countriesRoutes);
 
 connectDB();
 
