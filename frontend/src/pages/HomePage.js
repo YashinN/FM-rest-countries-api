@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import CountryCard from "../Components/CountryCard";
 import SearchBar from "../Components/SearchBar";
 import FilterCountries from "../Components/FilterCountries";
+import Loader from "../Components/Loader";
 import styles from "./HomePage.module.css";
-import { Link } from "react-router-dom";
 
-const HomePage = ({ TempData, darkMode }) => {
+const HomePage = ({ TempData, darkMode, loading }) => {
   const [data, setData] = useState(TempData);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
@@ -45,13 +47,16 @@ const HomePage = ({ TempData, darkMode }) => {
         <FilterCountries onFilter={setCountryFilter} darkMode={darkMode} />
       </div>
       <section className={`container p-0  general_container `}>
-        <div className={`${styles.country_grid}`}>
-          {data.map((country) => (
-            <Link to={`/country/${country.name}`}>
-              <CountryCard darkMode={darkMode} country={country} />
-            </Link>
-          ))}
-        </div>
+        {loading && <Loader />}
+        {!loading && (
+          <div className={`${styles.country_grid}`}>
+            {data.map((country) => (
+              <Link to={`/country/${country.name}`}>
+                <CountryCard darkMode={darkMode} country={country} />
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
     </main>
   );

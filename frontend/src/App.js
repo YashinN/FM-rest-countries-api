@@ -8,19 +8,27 @@ import CountryPage from "./pages/CountryPage";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [TempData, setTempData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCountries = async () => {
-      const response = await fetch(process.env.REACT_APP_API, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      setLoading(true);
 
-      const data = await response.json();
+      try {
+        const response = await fetch(process.env.REACT_APP_API, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-      setTempData(data);
+        const data = await response.json();
+        setTempData(data);
+      } catch (err) {
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
     };
 
     getCountries();
@@ -39,7 +47,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage TempData={TempData} darkMode={darkMode} />}
+          element={
+            <HomePage
+              TempData={TempData}
+              darkMode={darkMode}
+              loading={loading}
+            />
+          }
         />
 
         <Route
