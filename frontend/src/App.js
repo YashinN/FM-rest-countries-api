@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const getCountries = async () => {
       const response = await fetch(
-        "https://fm-rest-countries-7gkfk90fs-yashinn.vercel.app/api/countries",
+        "https://fm-rest-countries-7gkfk90fs-yashinn.vercel.app",
         {
           method: "GET",
           headers: {
