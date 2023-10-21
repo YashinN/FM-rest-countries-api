@@ -16,7 +16,7 @@ const connectDB = async () => {
 };
 
 const app = express();
-const PORT = process.env.PORT || 6000;
+const PORT = 4000;
 connectDB();
 
 app.use(cors());
