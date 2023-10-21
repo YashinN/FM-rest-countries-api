@@ -1,8 +1,7 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
-
 const cors = require("cors");
+require("dotenv").config();
 
 const connectDB = async () => {
   try {
@@ -16,9 +15,9 @@ const connectDB = async () => {
   }
 };
 
-const PORT = process.env.PORT || 6000;
 const app = express();
-// connectDB();
+const PORT = process.env.PORT || 6000;
+connectDB();
 
 app.use(cors());
 app.get("/api", (req, res) => {
@@ -28,8 +27,6 @@ app.get("/api", (req, res) => {
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `);
 });
-
-connectDB();
 
 // Export the Express AP
 module.exports = app;
