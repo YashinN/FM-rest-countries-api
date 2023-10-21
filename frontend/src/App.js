@@ -11,15 +11,12 @@ function App() {
 
   useEffect(() => {
     const getCountries = async () => {
-      const response = await fetch(
-        "https://fm-rest-countries-7gkfk90fs-yashinn.vercel.app/api/countries",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(process.env.REACT_APP_API, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       const data = await response.json();
 
