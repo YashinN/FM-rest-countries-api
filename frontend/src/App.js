@@ -7,7 +7,7 @@ import CountryPage from "./pages/CountryPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [TempData, setTempData] = useState([]);
+  const [countriesData, setCountriesData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function App() {
         });
 
         const data = await response.json();
-        setTempData(data);
+        setCountriesData(data);
       } catch (err) {
         setLoading(false);
       } finally {
@@ -49,7 +49,7 @@ function App() {
           path="/"
           element={
             <HomePage
-              TempData={TempData}
+              countriesData={countriesData}
               darkMode={darkMode}
               loading={loading}
             />
@@ -58,7 +58,9 @@ function App() {
 
         <Route
           path="/country/:id"
-          element={<CountryPage TempData={TempData} darkMode={darkMode} />}
+          element={
+            <CountryPage countriesData={countriesData} darkMode={darkMode} />
+          }
         />
 
         <Route path="*" element={<Navigate to="/" />} />

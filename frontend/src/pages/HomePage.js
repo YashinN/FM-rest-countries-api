@@ -7,8 +7,8 @@ import FilterCountries from "../Components/FilterCountries";
 import Loader from "../Components/Loader";
 import styles from "./HomePage.module.css";
 
-const HomePage = ({ TempData, darkMode, loading }) => {
-  const [data, setData] = useState(TempData);
+const HomePage = ({ countriesData, darkMode, loading }) => {
+  const [data, setData] = useState(countriesData);
   const [searchQuery, setSearchQuery] = useState("");
   const [countryFilter, setCountryFilter] = useState("All");
 
@@ -18,17 +18,19 @@ const HomePage = ({ TempData, darkMode, loading }) => {
 
   const handleFilter = () => {
     countryFilter !== "All"
-      ? setData(TempData.filter((country) => country.region === countryFilter))
-      : setData(TempData);
+      ? setData(
+          countriesData.filter((country) => country.region === countryFilter)
+        )
+      : setData(countriesData);
   };
 
   useEffect(() => {
     setData(
-      TempData.filter((country) =>
+      countriesData.filter((country) =>
         country.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
     );
-  }, [TempData, searchQuery]);
+  }, [countriesData, searchQuery]);
 
   useEffect(() => {
     handleFilter();

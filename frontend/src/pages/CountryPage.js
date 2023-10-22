@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import styles from "./CountryPage.module.css";
+
 import BorderCountries from "../Components/BorderCountries";
 import CountryDetails from "../Components/CountryDetails";
 import CountryDetailsImage from "../Components/CountryDetailsImage";
@@ -16,16 +19,22 @@ const detailsVariant = {
   },
 };
 
-const CountryPage = ({ TempData, darkMode }) => {
+const CountryPage = ({ countriesData, darkMode }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const selectedCountry = TempData.filter((country) => country.name === id);
+  const selectedCountry = countriesData.filter(
+    (country) => country.name === id
+  );
 
   const handleBorderCountry = (code) => {
-    const country = TempData.filter((country) => country.alpha3Code === code);
+    const country = countriesData.filter(
+      (country) => country.alpha3Code === code
+    );
     navigate(`/country/${country.at(0).name}`);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <main>
