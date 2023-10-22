@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -20,12 +20,24 @@ const detailsVariant = {
 };
 
 const CountryPage = ({ countriesData, darkMode }) => {
+  const [loading, setLoading] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState([
+    {
+      nativeName: "",
+      population: "",
+      region: "",
+      subregion: "",
+      capital: "",
+      topLevelDomain: "",
+      currencies: [],
+      languages: [],
+      flags: "",
+      borders: [],
+    },
+  ]);
+
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const selectedCountry = countriesData.filter(
-    (country) => country.name === id
-  );
 
   const handleBorderCountry = (code) => {
     const country = countriesData.filter(
@@ -34,7 +46,24 @@ const CountryPage = ({ countriesData, darkMode }) => {
     navigate(`/country/${country.at(0).name}`);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const getCountry = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(
+          `http://localhost:4000/api/countries/` + `${id}`
+        );
+        const data = await res.json();
+        console.log(data);
+        setSelectedCountry(data);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getCountry();
+  }, [setSelectedCountry]);
 
   return (
     <main>
@@ -47,26 +76,35 @@ const CountryPage = ({ countriesData, darkMode }) => {
             darkMode ? "country_details_dark" : "country_details_light"
           } ${styles.main_container}`}
         >
-          <CountryDetailsImage
-            styles={styles}
-            selectedCountry={selectedCountry}
-          />
+          {loading && <h1>loading</h1>}
 
-          <motion.div
-            className={`container p-0 ${styles.details_wrapper}`}
-            variants={detailsVariant}
-            animate="visible"
-            initial="hidden"
-          >
-            <CountryDetails styles={styles} selectedCountry={selectedCountry} />
+          {!loading && (
+            <>
+              <CountryDetailsImage
+                styles={styles}
+                selectedCountry={selectedCountry}
+              />
 
-            <BorderCountries
-              styles={styles}
-              onBorderCountry={handleBorderCountry}
-              selectedCountry={selectedCountry}
-              darkMode={darkMode}
-            />
-          </motion.div>
+              <motion.div
+                className={`container p-0 ${styles.details_wrapper}`}
+                variants={detailsVariant}
+                animate="visible"
+                initial="hidden"
+              >
+                <CountryDetails
+                  styles={styles}
+                  selectedCountry={selectedCountry}
+                />
+
+                <BorderCountries
+                  styles={styles}
+                  onBorderCountry={handleBorderCountry}
+                  selectedCountry={selectedCountry}
+                  darkMode={darkMode}
+                />
+              </motion.div>
+            </>
+          )}
         </div>
       </section>
     </main>
