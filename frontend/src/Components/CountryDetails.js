@@ -36,16 +36,14 @@ const CountryDetails = ({ styles, selectedCountry }) => {
 
         <ul className="p-0">
           <li>
-            <li>
-              <strong>Top Level Domain:</strong> {topLevelDomain}
-            </li>
-            <li>
-              <strong>Currencies:</strong> {commaSeparateItems(currencies)}
-            </li>
-            <li>
-              <strong>Languages:</strong>
-              {commaSeparateItems(languages)}
-            </li>
+            <strong>Top Level Domain:</strong> {topLevelDomain}
+          </li>
+          <li>
+            <strong>Currencies:</strong> {commaSeparateItems(currencies)}
+          </li>
+          <li>
+            <strong>Languages:</strong>
+            {commaSeparateItems(languages)}
           </li>
         </ul>
       </div>
