@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import useCountryData from "./hooks/useCountryData";
+
 import Navbar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
@@ -8,31 +10,36 @@ import CountryPage from "./pages/CountryPage";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countriesData, setCountriesData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const getCountries = async () => {
-      setLoading(true);
+  const { loading } = useCountryData(
+    process.env.REACT_APP_API,
+    setCountriesData
+  );
 
-      try {
-        const response = await fetch(process.env.REACT_APP_API, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+  // useEffect(() => {
+  //   const getCountries = async () => {
+  //     setLoading(true);
 
-        const data = await response.json();
-        setCountriesData(data);
-      } catch (err) {
-        setLoading(false);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //     try {
+  //       const response = await fetch(process.env.REACT_APP_API, {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
 
-    getCountries();
-  }, []);
+  //       const data = await response.json();
+  //       setCountriesData(data);
+  //     } catch (err) {
+  //       setLoading(false);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   getCountries();
+  // }, []);
 
   const handleDarkMode = () => {
     setDarkMode((theme) => !theme);
