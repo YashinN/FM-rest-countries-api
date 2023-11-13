@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import useCountryData from "../hooks/useCountryData";
 
 import styles from "./CountryPage.module.css";
 
@@ -19,8 +20,9 @@ const detailsVariant = {
   },
 };
 
+const apiUrl = process.env.REACT_APP_API_COUNTRY;
+
 const CountryPage = ({ countriesData, darkMode }) => {
-  const [loading, setLoading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState([
     {
       nativeName: "",
@@ -39,6 +41,12 @@ const CountryPage = ({ countriesData, darkMode }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const { loading } = useCountryData(
+    `http://localhost:4000/api/countries/` + `${id}`,
+    setSelectedCountry,
+    [id]
+  );
+
   const handleBorderCountry = (code) => {
     const country = countriesData.filter(
       (country) => country.alpha3Code === code
@@ -46,24 +54,24 @@ const CountryPage = ({ countriesData, darkMode }) => {
     navigate(`/country/${country.at(0).name}`);
   };
 
-  useEffect(() => {
-    const getCountry = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          `http://localhost:4000/api/countries/` + `${id}`
-        );
-        const data = await res.json();
-        console.log(data);
-        setSelectedCountry(data);
-        setLoading(false);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  // useEffect(() => {
+  //   const getCountry = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const res = await fetch(
+  //         `http://localhost:4000/api/countries/` + `${id}`
+  //       );
+  //       const data = await res.json();
+  //       console.log(data);
+  //       setSelectedCountry(data);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
 
-    getCountry();
-  }, [setSelectedCountry]);
+  //   getCountry();
+  // }, [setSelectedCountry, id]);
 
   return (
     <main>

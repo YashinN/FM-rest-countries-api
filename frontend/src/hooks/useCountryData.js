@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useCountryData = (apiUrl, callBack) => {
+const useCountryData = (apiUrl, callBack, dependancies = []) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -11,7 +11,6 @@ const useCountryData = (apiUrl, callBack) => {
         const data = await res.json();
         callBack(data);
       } catch (err) {
-        console.log(err);
         setLoading(false);
       } finally {
         setLoading(false);
@@ -19,7 +18,7 @@ const useCountryData = (apiUrl, callBack) => {
     };
 
     getData();
-  }, [apiUrl, callBack]);
+  }, [apiUrl, callBack, ...dependancies]);
 
   return { loading };
 };
