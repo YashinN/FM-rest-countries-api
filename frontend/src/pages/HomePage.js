@@ -38,6 +38,8 @@ const HomePage = ({ countriesData, darkMode, loading }) => {
 
   return (
     <main>
+      {loading && <Loader />}
+
       <div
         className={`container p-0 general_container ${styles.search_container}`}
       >
@@ -49,7 +51,6 @@ const HomePage = ({ countriesData, darkMode, loading }) => {
         <FilterCountries onFilter={setCountryFilter} darkMode={darkMode} />
       </div>
       <section className={`container p-0  general_container `}>
-        {loading && <Loader />}
         {!loading && (
           <div className={`${styles.country_grid}`}>
             {data.map((country) => (

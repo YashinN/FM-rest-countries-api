@@ -9,6 +9,7 @@ import BorderCountries from "../Components/BorderCountries";
 import CountryDetails from "../Components/CountryDetails";
 import CountryDetailsImage from "../Components/CountryDetailsImage";
 import BackButton from "../Components/BackButton";
+import Loader from "../Components/Loader";
 
 const detailsVariant = {
   hidden: { x: "100vw" },
@@ -58,13 +59,13 @@ const CountryPage = ({ countriesData, darkMode }) => {
         className={`container  general_container ${styles.padding_control}`}
       >
         <BackButton darkMode={darkMode} styles={styles} />
+
+        {loading && <Loader />}
         <div
           className={` ${
             darkMode ? "country_details_dark" : "country_details_light"
           } ${styles.main_container}`}
         >
-          {loading && <h1>loading</h1>}
-
           {!loading && (
             <>
               <CountryDetailsImage

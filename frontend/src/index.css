@@ -51,7 +51,8 @@ body {
 
 main {
   padding: 0px 55px;
-  height: 100%;
+  min-height: inherit;
+  position: relative;
 }
 
 @media (max-width: 960px) {
