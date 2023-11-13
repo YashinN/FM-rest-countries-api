@@ -5,41 +5,15 @@ import useCountryData from "./hooks/useCountryData";
 import Navbar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
-// import TempData from "./data.json";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countriesData, setCountriesData] = useState([]);
-  // const [loading, setLoading] = useState(true);
 
   const { loading } = useCountryData(
     process.env.REACT_APP_API,
     setCountriesData
   );
-
-  // useEffect(() => {
-  //   const getCountries = async () => {
-  //     setLoading(true);
-
-  //     try {
-  //       const response = await fetch(process.env.REACT_APP_API, {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-
-  //       const data = await response.json();
-  //       setCountriesData(data);
-  //     } catch (err) {
-  //       setLoading(false);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   getCountries();
-  // }, []);
 
   const handleDarkMode = () => {
     setDarkMode((theme) => !theme);
