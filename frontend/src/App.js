@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import useCountryData from "./hooks/useCountryData";
+import { Analytics } from "@vercel/analytics/react";
 
 import Navbar from "./Components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -46,6 +47,7 @@ function App() {
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Analytics />
     </>
   );
 }
