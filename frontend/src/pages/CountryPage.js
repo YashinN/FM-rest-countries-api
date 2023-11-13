@@ -20,8 +20,6 @@ const detailsVariant = {
   },
 };
 
-const apiUrl = process.env.REACT_APP_API_COUNTRY;
-
 const CountryPage = ({ countriesData, darkMode }) => {
   const [selectedCountry, setSelectedCountry] = useState([
     {
@@ -42,7 +40,7 @@ const CountryPage = ({ countriesData, darkMode }) => {
   const { id } = useParams();
 
   const { loading } = useCountryData(
-    `http://localhost:4000/api/countries/` + `${id}`,
+    `${process.env.REACT_APP_API}/` + `${id}`,
     setSelectedCountry,
     [id]
   );
@@ -53,25 +51,6 @@ const CountryPage = ({ countriesData, darkMode }) => {
     );
     navigate(`/country/${country.at(0).name}`);
   };
-
-  // useEffect(() => {
-  //   const getCountry = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const res = await fetch(
-  //         `http://localhost:4000/api/countries/` + `${id}`
-  //       );
-  //       const data = await res.json();
-  //       console.log(data);
-  //       setSelectedCountry(data);
-  //       setLoading(false);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-
-  //   getCountry();
-  // }, [setSelectedCountry, id]);
 
   return (
     <main>
