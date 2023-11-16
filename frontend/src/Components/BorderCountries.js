@@ -45,6 +45,7 @@ const BorderCountries = ({
       >
         {borders?.map((code) => (
           <motion.button
+            key={code}
             variants={childVariants}
             id={darkMode ? "dark" : "light"}
             onClick={() => onBorderCountry(code)}

@@ -54,7 +54,7 @@ const HomePage = ({ countriesData, darkMode, loading }) => {
         {!loading && (
           <div className={`${styles.country_grid}`}>
             {data.map((country) => (
-              <Link to={`/country/${country.name}`}>
+              <Link to={`/country/${country.name}`} key={country.name}>
                 <CountryCard darkMode={darkMode} country={country} />
               </Link>
             ))}
